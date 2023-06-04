@@ -1,0 +1,5 @@
+webroot: /var/www/html/test
+websvc:
+   - httpd
+   - vsftpd
+   - wget

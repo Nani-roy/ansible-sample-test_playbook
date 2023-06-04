@@ -1,0 +1,16 @@
+- name: example of command  variable 
+  hosts: webserver
+  vars_prompt:
+      - name: myuser
+        prompt: "Username"
+        private: no
+
+      - name: mypass
+        prompt: "password"
+        private: yes
+        mypass: hello
+  tasks:
+      - name: add ravi and apply password
+        user:
+          name: "{{ myuser }}"
+          password: "{{ mypass | password_hash('sha512') }}"

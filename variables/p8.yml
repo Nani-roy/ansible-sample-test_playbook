@@ -1,0 +1,12 @@
+- name: example of inventory  variable 
+  hosts:
+     - webserver
+     - dbserver
+  tasks:
+      - name: add ravi and individual password apply 
+        user:
+          name: ravi 
+          password: "{{ mypass }}"
+
+      - debug:
+          msg: "{{ mypass }}"

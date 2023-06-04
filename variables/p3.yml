@@ -1,0 +1,13 @@
+- name: example of listing  variable in playbook level
+  hosts: webserver
+  vars:
+    websvc:
+        - httpd
+        - ftp
+        - vsftpd
+        - wget
+  tasks:
+    - name: install web service
+      yum:
+       name: "{{ websvc }}" 
+       state: installed

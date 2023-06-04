@@ -1,0 +1,9 @@
+- name: example of command  variable in playbook level
+  hosts: webserver
+  vars:
+     mypass: redhat
+  tasks:
+    - name: add ravi and apply password
+      user:
+        name: ravi
+        password: "{{ mypass | password_hash('sha512') }}"
